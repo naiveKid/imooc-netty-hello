@@ -37,8 +37,7 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
 		// 下面这个方法，和上面的for循环，一致
 		clients.writeAndFlush(
 				new TextWebSocketFrame(
-						"[服务器在]" + LocalDateTime.now() 
-						+ "接受到消息, 消息为：" + content));
+						"服务器在" + LocalDateTime.now() + "接受到消息, 消息为：" + content));
 		
 	}
 
@@ -54,13 +53,10 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
 	@Override
 	public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
 		// 当触发handlerRemoved，ChannelGroup会自动移除对应客户端的channel
-//		clients.remove(ctx.channel());
+        // clients.remove(ctx.channel());//此行代码可不写
 		System.out.println("客户端断开，channle对应的长id为：" 
 							+ ctx.channel().id().asLongText());
 		System.out.println("客户端断开，channle对应的短id为：" 
 							+ ctx.channel().id().asShortText());
 	}
-
-	
-	
 }

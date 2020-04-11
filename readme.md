@@ -32,6 +32,10 @@
 		}
 ```
 
+​	通过浏览器访问： localhost:8080  或  通过： curl localhost:8080 
+
+​	均能看到响应结果：*Hello netty~*
+
 2. WSServer 在main方法中：
 
 ```java
@@ -53,3 +57,4 @@
 		}
 ```
 
+​	通过html目录的 testWebsocket.html 可以进行测试。通过发生一段文本内容，可收到对应的服务器响应消息
